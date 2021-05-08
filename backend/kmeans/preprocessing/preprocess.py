@@ -1,8 +1,10 @@
+import os
+
 import pandas as pd
 import numpy as np
 
-def kmeans_preprocess():
-    dataset = pd.read_csv("../dataset/original.csv")
+def kmeans_preprocess(DATASET_DIR):
+    dataset = pd.read_csv(DATASET_DIR+'original.csv')
 
     #Convert all string values to NaN
     dataset = dataset.apply(lambda x: pd.to_numeric(x, errors = 'coerce'))
@@ -17,5 +19,4 @@ def kmeans_preprocess():
     #Replace NaN with the mean 
     dataset = dataset.fillna(dataset.mean())
 
-    dataset.to_csv('../dataset/preprocessed.csv', index=False)
-kmeans_preprocess()
+    dataset.to_csv(DATASET_DIR+'preprocessed.csv', index=False)
