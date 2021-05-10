@@ -12,12 +12,13 @@ export class UploadComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  uploadedFiles: any[] = [];
-
-
   onUpload(event) {
-    for (let file of event.files) {
-      this.uploadedFiles.push(file);
+    let input =event.files[0]
+    let reader = new FileReader();
+    reader.readAsText(input)
+
+    reader.onload = () => {
+      console.log(reader.result)
     }
   }
 

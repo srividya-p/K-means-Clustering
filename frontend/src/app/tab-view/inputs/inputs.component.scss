@@ -1,0 +1,51 @@
+:host ::ng-deep .p-fieldset-legend {
+    width: 30%;
+    margin-left: 5%;
+    font-family: monospace;
+    margin-bottom: 1%;
+}
+
+.k-input {
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
+
+.input-group{
+    margin-left: 5%;
+    font-family: monospace;
+    margin-bottom: 2%;
+}
+
+.dm-input {
+    margin-bottom: 5%;
+}
+
+
+:host ::ng-deep .pi-minus {
+    background-color: #F48FB1;
+    color: #1f2d40;
+    font-weight: 900;
+}
+
+:host ::ng-deep .pi-plus {
+    background-color: #C5E1A5;
+    color: #1f2d40;
+    font-weight: 900;
+}
+
+:host ::ng-deep .p-inputnumber-input {
+    width: 200px;
+    height: 35px;
+    font-size: medium;
+    font-family: monospace;
+}
+
+:host ::ng-deep .p-button-label {
+    background-color: transparent;
+    font-family: monospace;
+    font-weight: bolder;
+}
+
+.input-submit {
+    text-align: center;
+}

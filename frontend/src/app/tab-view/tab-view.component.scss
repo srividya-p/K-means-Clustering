@@ -14,3 +14,13 @@
     margin-top: 2%;
     margin-bottom: 2%;
 }
+
+:host ::ng-deep .p-button-label {
+    background-color: transparent;
+    font-family: monospace;
+    font-weight: bolder;
+}
+
+.preprocess-submit {
+    text-align: center;
+}

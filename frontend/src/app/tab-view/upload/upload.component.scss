@@ -7,3 +7,7 @@
     background-color: transparent;
 }
 
+:host ::ng-deep .p-fileupload-row div:first-of-type{
+    width: 0px;
+}
+

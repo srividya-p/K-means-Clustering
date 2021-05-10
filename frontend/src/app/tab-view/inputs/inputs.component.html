@@ -1,0 +1,27 @@
+<div class="col-xs-12">
+    <div class="row k-input">
+        <p-fieldset legend="K (Number of Clusters)" [toggleable]="false">
+            <div class="input-group">
+                <p style="margin-bottom: 25px;">Input the number of Clusters to Generate. This number should be < = the number of rows in the dataset.</p>
+                <p-inputNumber [(ngModel)]="k" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal"
+                    spinnerMode="horizontal" [step]="1" decrementButtonClass="p-button-danger"
+                    incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus"
+                    decrementButtonIcon="pi pi-minus" inputId="minmax" [min]=2 [max]=5>
+                </p-inputNumber>
+            </div>
+        </p-fieldset>
+    </div>
+
+    <div class="row dm-input">
+        <p-fieldset legend="Distance Metric" [toggleable]="false">
+            <div class="input-group">
+                <p style="margin-bottom: 25px;">Select the Distance Metric for calculation of Inter Cluster Distance.</p>
+                <p-selectButton [options]="distOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"></p-selectButton>
+            </div>
+        </p-fieldset>
+    </div>
+
+    <div class="row input-submit">
+        <button pButton type="button" label="Cluster Dataset" class="p-button-success p-button-lg"></button>
+    </div>
+</div>
