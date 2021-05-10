@@ -1,0 +1,13 @@
+@import '../node_modules/primeng/resources/themes/mdc-dark-deeppurple/theme.css';
+@import '../node_modules/primeng/resources/primeng.min.css';
+@import '../node_modules/primeicons/primeicons.css';
+
+* {
+    font-size: 16px;
+    background-color: #1f2d40;
+}
+
+body, html {
+    margin: 0;
+    width: 100%
+}

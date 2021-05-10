@@ -1,0 +1,25 @@
+:host ::ng-deep .p-fieldset-legend {
+    width: 30%;
+    margin-left: 5%;
+    font-family: monospace;
+    margin-bottom: 2%;
+}
+
+:host ::ng-deep .p-toggleable-content {
+    height: 10px;
+}
+
+.info {
+    margin-bottom: 3%;
+}
+
+.algorithm{
+    font-family: monospace;
+    text-align: justify;
+    margin-bottom: 2%;
+}
+
+.gallery{
+    margin-bottom: 3%;
+    padding-left: 8%;
+}

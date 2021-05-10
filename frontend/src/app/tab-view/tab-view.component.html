@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <!-- <div style="padding: .5em 0 1em 0">
+                <p-button (click)="activeIndex = 0" styleClass="p-button-text" label="Activate 1rd"></p-button>
+                <p-button (click)="activeIndex = 1" styleClass="p-button-text" label="Activate 2rd"></p-button>
+                <p-button (click)="activeIndex = 2" styleClass="p-button-text" label="Activate 3rd"></p-button>
+            </div> -->
+            <p-tabView [(activeIndex)]="activeIndex">
+                <p-tabPanel header="&emsp;&emsp;Upload Dataset&emsp;&emsp;&emsp;&emsp;" leftIcon="pi pi-upload">
+                    <p class="tab-info">The dataset should strictly be a CSV file. Drag and Drop your dataset and click on Upload.</p>  
+                    <app-upload></app-upload>
+                </p-tabPanel>
+                <p-tabPanel header="&emsp;&emsp;Preprocessing&emsp;&emsp;&emsp;&emsp;" leftIcon="pi pi-sliders-h">
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                        architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                        voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.</p>
+                </p-tabPanel>
+                <p-tabPanel header="&emsp;&emsp;Input Parameters&emsp;&emsp;&emsp;&emsp;" leftIcon="pi pi-cog">
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
+                        cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
+                        Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>   
+                </p-tabPanel>
+                <p-tabPanel header="&emsp;&emsp;Clusters&emsp;&emsp;&emsp;&emsp;" leftIcon="pi pi-th-large">
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
+                        cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
+                        Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>   
+                </p-tabPanel>
+                <p-tabPanel header="&emsp;&emsp;Visualisation" leftIcon="pi pi-chart-bar">
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
+                        cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
+                        Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>   
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+    </div>
+</div>
