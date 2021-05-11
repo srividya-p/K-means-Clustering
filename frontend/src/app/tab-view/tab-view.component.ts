@@ -10,7 +10,8 @@ export class TabViewComponent {
 
   activeIndex: number = 0;
   csvObject: any;
-  apiPreprocessURL: string = 'http://localhost:5000/api/preprocess-dataset'
+  apiPreprocessURL: string = 'http://localhost:5000/api/preprocess-dataset';
+  showPreprocessed:boolean = false;
 
   constructor(private http: HttpClient) { }
 
@@ -33,7 +34,9 @@ export class TabViewComponent {
 
         reader.onload = () => {
           let csvString = reader.result;
-          this.csvObject = JSON.parse(JSON.stringify(csvString));
+          this.csvObject = JSON.stringify(csvString).replace(/(?:\\[rn])+/g, '');
+          this.csvObject = JSON.parse(JSON.parse(this.csvObject))
+          this.showPreprocessed = true;
         }
       }
     )

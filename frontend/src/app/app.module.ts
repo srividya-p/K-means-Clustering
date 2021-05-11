@@ -14,14 +14,16 @@ import { GalleriaModule } from 'primeng/galleria';
 import { FileUploadModule } from 'primeng/fileupload';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { SelectButtonModule } from 'primeng/selectbutton';
-import {ToastModule} from 'primeng/toast';
+import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { TableModule } from 'primeng/table';
 
 import { TabViewComponent } from './tab-view/tab-view.component';
 import { TopInfoComponent } from './top-info/top-info.component';
 import { GalleriaComponent } from './top-info/galleria/galleria.component';
 import { UploadComponent } from './tab-view/upload/upload.component';
 import { InputsComponent } from './tab-view/inputs/inputs.component';
+import { PreprocessedTableComponent } from './tab-view/preprocessed-table/preprocessed-table.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { InputsComponent } from './tab-view/inputs/inputs.component';
     TopInfoComponent,
     GalleriaComponent,
     UploadComponent,
-    InputsComponent
+    InputsComponent,
+    PreprocessedTableComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { InputsComponent } from './tab-view/inputs/inputs.component';
     FileUploadModule,
     InputNumberModule,
     SelectButtonModule,
-    ToastModule
+    ToastModule,
+    TableModule
   ],
   providers: [ MessageService ],
   bootstrap: [AppComponent]

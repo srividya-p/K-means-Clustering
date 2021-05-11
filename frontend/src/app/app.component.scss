@@ -10,6 +10,7 @@ h1 {
 
 :host ::ng-deep .p-toast-message-content {
     background-color: transparent;
+    font-family: monospace;
 }
 
 :host ::ng-deep .p-toast-message-text {

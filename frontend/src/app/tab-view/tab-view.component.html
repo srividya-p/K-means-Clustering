@@ -13,9 +13,11 @@
                         and cells with missing data(NaN or incorrect values of String Datatype) will be replaced by the <strong>Mean Value of that column.</strong> 
                     </p>  
 
-                    <div class="row preprocess-submit">
+                    <div *ngIf="!showPreprocessed" class="row preprocess-submit">
                         <button pButton (click)="onPreprocessClick($event)" type="button" label="Preprocess Dataset" class="p-button-success p-button-lg"></button>
                     </div>
+
+                    <app-preprocessed-table *ngIf="showPreprocessed" (tabChangeEvent)="receiveActiveIndex($event)" [tableContent]="csvObject"></app-preprocessed-table>
                 </p-tabPanel>
                 
                 <p-tabPanel [disabled] = "activeIndex !== 2" header="&emsp;&emsp;Input Parameters&emsp;&emsp;&emsp;&emsp;" leftIcon="pi pi-cog">

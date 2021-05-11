@@ -11,3 +11,7 @@
     width: 0px;
 }
 
+:host ::ng-deep .p-fileupload-row {
+    font-family: monospace;
+}
+
