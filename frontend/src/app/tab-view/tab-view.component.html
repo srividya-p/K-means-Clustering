@@ -2,12 +2,12 @@
     <div class="col-md-12">
         <div class="card">
             <p-tabView [(activeIndex)]="activeIndex">
-                <p-tabPanel [disabled] = "activeIndex !== 0" header="&emsp;&emsp;Upload Dataset&emsp;&emsp;&emsp;&emsp;" leftIcon="pi pi-upload">
+                <p-tabPanel [disabled] = "activeIndex !== 0" header="&emsp;&emsp;Upload Dataset&emsp;&emsp;&emsp;&emsp;&nbsp;" leftIcon="pi pi-upload">
                     <p class="tab-info">The dataset should strictly be a CSV file. Drag and Drop your dataset and click on Upload.</p>  
                     <app-upload (uploadEvent)="sendMessage($event)" (tabChangeEvent)="receiveActiveIndex($event)"></app-upload>
                 </p-tabPanel>
                 
-                <p-tabPanel [disabled] = "activeIndex !== 1" header="&emsp;&emsp;Preprocessing&emsp;&emsp;&emsp;&emsp;" leftIcon="pi pi-sliders-h">
+                <p-tabPanel [disabled] = "activeIndex !== 1" header="&emsp;&emsp;Preprocessing&emsp;&emsp;&emsp;&emsp;&nbsp;" leftIcon="pi pi-sliders-h">
                     <p class="tab-info">K-means Clustering requires that the values in the dataset be <strong>ONLY Numeric.</strong>  Hence, the Preprocessing 
                         will strip the Input dataset of Non Numeric Atttributes. Columns with only Non Numeric values will be removed completely 
                         and cells with missing data(NaN or incorrect values of String Datatype) will be replaced by the <strong>Mean Value of that column.</strong> 
@@ -20,12 +20,12 @@
                     <app-preprocessed-table *ngIf="showPreprocessed" (tabChangeEvent)="receiveActiveIndex($event)" [tableContent]="csvObject"></app-preprocessed-table>
                 </p-tabPanel>
                 
-                <p-tabPanel [disabled] = "activeIndex !== 2" header="&emsp;&emsp;Input Parameters&emsp;&emsp;&emsp;&emsp;" leftIcon="pi pi-cog">
+                <p-tabPanel [disabled] = "activeIndex !== 2" header="&emsp;&emsp;Input Parameters&emsp;&emsp;&emsp;&emsp;&nbsp;" leftIcon="pi pi-cog">
                     <app-inputs (sendClustersEvent)="receiveClusters($event)" (tabChangeEvent)="receiveActiveIndex($event)" ></app-inputs>
                 </p-tabPanel>
                 
-                <p-tabPanel [disabled] = "activeIndex !== 3" header="&emsp;&emsp;Clusters&emsp;&emsp;&emsp;&emsp;" leftIcon="pi pi-th-large">
-                    <app-clusters *ngIf="showClusters" [clusterResult]="clusterResult"></app-clusters> 
+                <p-tabPanel [disabled] = "activeIndex !== 3" header="&emsp;&emsp;Clusters&emsp;&emsp;&emsp;&emsp;&nbsp;" leftIcon="pi pi-th-large">
+                    <app-clusters *ngIf="showClusters" [clusterResult]="clusterResult" (tabChangeEvent)="receiveActiveIndex($event)"></app-clusters> 
                 </p-tabPanel>
                 
                 <p-tabPanel [disabled] = "activeIndex !== 4" header="&emsp;&emsp;Visualisation" leftIcon="pi pi-chart-bar">

@@ -37,5 +37,5 @@ def kmeans_clustering(DATASET_DIR, k, p):
 
         return {
             'clusters': result,
-            'orignal_centers': original_centers
+            'original_centers': original_centers
         }

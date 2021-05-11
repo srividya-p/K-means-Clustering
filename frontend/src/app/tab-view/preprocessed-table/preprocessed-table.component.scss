@@ -2,3 +2,11 @@
     text-align: center;
     margin-top: 3%;
 }
+
+:host ::ng-deep .p-datatable-scrollable-wrapper {
+    font-family: monospace;
+}
+
+:host ::ng-deep .p-datatable-header {
+    font-family: monospace;
+}

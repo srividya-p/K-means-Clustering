@@ -1,0 +1,27 @@
+.centers-text{
+    font-family: monospace;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.cluster-table {
+    margin-top: 2%;
+}
+
+.visualise {
+    text-align: center;
+    margin-top: 3%;
+}
+
+:host ::ng-deep .p-datatable-header {
+    font-family: monospace;
+}
+
+:host ::ng-deep .p-datatable-gridlines {
+    font-family: monospace;
+}
+
+:host ::ng-deep .p-badge {
+    font-family: monospace;
+}

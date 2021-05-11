@@ -17,6 +17,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { TableModule } from 'primeng/table';
+import {BadgeModule} from 'primeng/badge';
 
 import { TabViewComponent } from './tab-view/tab-view.component';
 import { TopInfoComponent } from './top-info/top-info.component';
@@ -51,7 +52,8 @@ import { ClustersComponent } from './tab-view/clusters/clusters.component';
     InputNumberModule,
     SelectButtonModule,
     ToastModule,
-    TableModule
+    TableModule,
+    BadgeModule
   ],
   providers: [ MessageService ],
   bootstrap: [AppComponent]

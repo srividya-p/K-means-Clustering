@@ -1,1 +1,36 @@
-<p>clusters works!</p>
+<div class="row">
+    <div class="col-xs-12">
+        <p class="centers-text">
+            <p-badge [value]="badge" size="xlarge" severity="info"></p-badge>
+            {{centers}}
+        </p>
+    </div>
+</div>
+
+<div class="row cluster-table">
+    <p-table [value]="clusters" styleClass="p-datatable-gridlines" [paginator]="true" [rows]="5"
+        [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[5,10,15]">
+        <ng-template pTemplate="caption">
+            Cluster Assignments
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Sr. No.</th>
+                <th>Row</th>
+                <th>Assigned Cluster</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-clusters let-i="rowIndex + 1">
+            <tr>
+                <td>{{i}}</td>
+                <td>{{clusters.row}}</td>
+                <td><strong>{{clusters.assigned}}</strong></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<div class="row visualise">
+    <button pButton type="button" (click)="onVisualiseClick($event)" label="Visualise" class="p-button-success p-button-lg"></button>
+</div>
