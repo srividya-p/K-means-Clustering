@@ -16,12 +16,19 @@
         <p-fieldset legend="Distance Metric" [toggleable]="false">
             <div class="input-group">
                 <p style="margin-bottom: 25px;">Select the Distance Metric for calculation of Inter Cluster Distance.</p>
-                <p-selectButton [options]="distOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"></p-selectButton>
+                <p-selectButton (onChange)="checkMetric($event)" [options]="distOptions" [(ngModel)]="dMetric" optionLabel="label" optionValue="value"></p-selectButton>
+                
+                <p *ngIf="showMinkowski" style="margin-top: 25px; margin-bottom: 25px;">Enter a value for p.</p>
+                <p-inputNumber *ngIf="showMinkowski" [(ngModel)]="p" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal"
+                    spinnerMode="horizontal" [step]="1" decrementButtonClass="p-button-danger"
+                    incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus"
+                    decrementButtonIcon="pi pi-minus">
+                </p-inputNumber>
             </div>
         </p-fieldset>
     </div>
 
     <div class="row input-submit">
-        <button pButton type="button" label="Cluster Dataset" class="p-button-success p-button-lg"></button>
+        <button pButton type="button" (click)="onClusterClick($event)" label="Cluster Dataset" class="p-button-success p-button-lg"></button>
     </div>
 </div>

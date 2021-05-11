@@ -24,6 +24,7 @@ import { GalleriaComponent } from './top-info/galleria/galleria.component';
 import { UploadComponent } from './tab-view/upload/upload.component';
 import { InputsComponent } from './tab-view/inputs/inputs.component';
 import { PreprocessedTableComponent } from './tab-view/preprocessed-table/preprocessed-table.component';
+import { ClustersComponent } from './tab-view/clusters/clusters.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PreprocessedTableComponent } from './tab-view/preprocessed-table/prepro
     GalleriaComponent,
     UploadComponent,
     InputsComponent,
-    PreprocessedTableComponent
+    PreprocessedTableComponent,
+    ClustersComponent
   ],
   imports: [
     BrowserModule,

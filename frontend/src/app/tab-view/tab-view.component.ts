@@ -12,6 +12,8 @@ export class TabViewComponent {
   csvObject: any;
   apiPreprocessURL: string = 'http://localhost:5000/api/preprocess-dataset';
   showPreprocessed:boolean = false;
+  showClusters:boolean = false;
+  clusterResult:any;
 
   constructor(private http: HttpClient) { }
 
@@ -19,6 +21,11 @@ export class TabViewComponent {
 
   receiveActiveIndex($event) {
     this.activeIndex = $event
+  }
+
+  receiveClusters($event) {
+    this.clusterResult = $event;
+    this.showClusters = true;
   }
 
   sendMessage($event) {

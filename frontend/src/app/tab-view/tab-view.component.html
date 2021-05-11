@@ -21,13 +21,11 @@
                 </p-tabPanel>
                 
                 <p-tabPanel [disabled] = "activeIndex !== 2" header="&emsp;&emsp;Input Parameters&emsp;&emsp;&emsp;&emsp;" leftIcon="pi pi-cog">
-                    <app-inputs></app-inputs>
+                    <app-inputs (sendClustersEvent)="receiveClusters($event)" (tabChangeEvent)="receiveActiveIndex($event)" ></app-inputs>
                 </p-tabPanel>
                 
                 <p-tabPanel [disabled] = "activeIndex !== 3" header="&emsp;&emsp;Clusters&emsp;&emsp;&emsp;&emsp;" leftIcon="pi pi-th-large">
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
-                        cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
-                        Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>   
+                    <app-clusters *ngIf="showClusters" [clusterResult]="clusterResult"></app-clusters> 
                 </p-tabPanel>
                 
                 <p-tabPanel [disabled] = "activeIndex !== 4" header="&emsp;&emsp;Visualisation" leftIcon="pi pi-chart-bar">

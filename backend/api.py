@@ -5,6 +5,7 @@ from flask_cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
 
 from kmeans.preprocessing.preprocess import kmeans_preprocess
+from kmeans.kmeans import kmeans_clustering
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -41,9 +42,12 @@ def preprocess_dataset():
         kmeans_preprocess(app.config['DATASET_DIR'])
         return send_file(app.config['DATASET_DIR']+'preprocessed.json')
 
-@app.route('/api/cluster-dataset')
+@app.route('/api/cluster-dataset', methods=['POST'])
 def cluster_dataset():
-    pass
+    if(request.method == 'POST'):
+        parameters = request.get_json()
+        result = kmeans_clustering(app.config['DATASET_DIR'], parameters['k'], parameters['p'])
+        return jsonify(result), 200
 
 if __name__ =="__main__":  
     app.run(debug = True)  
