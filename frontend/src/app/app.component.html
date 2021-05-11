@@ -1,3 +1,5 @@
+<p-toast></p-toast>
+
 <div class="container-fluid">
     <div class="container">
         <div class="row">
@@ -8,7 +10,7 @@
         
         <app-top-info></app-top-info>
 
-        <app-tab-view></app-tab-view>
+        <app-tab-view (uploadEvent)="showMessage($event)"></app-tab-view>
 
     </div>
 </div>

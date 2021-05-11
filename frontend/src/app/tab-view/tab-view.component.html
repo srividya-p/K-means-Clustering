@@ -1,15 +1,10 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <!-- <div style="padding: .5em 0 1em 0">
-                <p-button (click)="activeIndex = 0" styleClass="p-button-text" label="Activate 1rd"></p-button>
-                <p-button (click)="activeIndex = 1" styleClass="p-button-text" label="Activate 2rd"></p-button>
-                <p-button (click)="activeIndex = 2" styleClass="p-button-text" label="Activate 3rd"></p-button>
-            </div> -->
             <p-tabView [(activeIndex)]="activeIndex">
                 <p-tabPanel [disabled] = "activeIndex !== 0" header="&emsp;&emsp;Upload Dataset&emsp;&emsp;&emsp;&emsp;" leftIcon="pi pi-upload">
                     <p class="tab-info">The dataset should strictly be a CSV file. Drag and Drop your dataset and click on Upload.</p>  
-                    <app-upload></app-upload>
+                    <app-upload (uploadEvent)="sendMessage($event)" (tabChangeEvent)="receiveActiveIndex($event)"></app-upload>
                 </p-tabPanel>
                 
                 <p-tabPanel [disabled] = "activeIndex !== 1" header="&emsp;&emsp;Preprocessing&emsp;&emsp;&emsp;&emsp;" leftIcon="pi pi-sliders-h">
@@ -19,7 +14,7 @@
                     </p>  
 
                     <div class="row preprocess-submit">
-                        <button pButton type="button" label="Preprocess Dataset" class="p-button-success p-button-lg"></button>
+                        <button pButton (click)="onPreprocessClick($event)" type="button" label="Preprocess Dataset" class="p-button-success p-button-lg"></button>
                     </div>
                 </p-tabPanel>
                 

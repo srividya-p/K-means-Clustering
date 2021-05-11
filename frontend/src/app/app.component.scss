@@ -7,3 +7,29 @@ h1 {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+:host ::ng-deep .p-toast-message-content {
+    background-color: transparent;
+}
+
+:host ::ng-deep .p-toast-message-text {
+    background-color: #C8E6C9;
+}
+
+:host ::ng-deep .p-toast-message-icon {
+    background-color: #C8E6C9;
+}
+
+:host ::ng-deep .p-toast-summary {
+    background-color: #C8E6C9;
+}
+
+:host ::ng-deep .p-toast-detail {
+    background-color: #C8E6C9;
+}
+
+:host ::ng-deep .p-toast-icon-close-icon {
+    background-color: #C8E6C9;
+}
+
+

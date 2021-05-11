@@ -1,26 +1,45 @@
 import os
 
-from flask import Flask, request, jsonify, abort
+from flask import Flask, request, jsonify, abort, send_file
 from flask_cors import CORS, cross_origin
+from werkzeug.utils import secure_filename
 
 from kmeans.preprocessing.preprocess import kmeans_preprocess
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-DATASET_DIR = ROOT_DIR + '/kmeans/dataset/'
 
 app = Flask(__name__)
 
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
+app.config['DATASET_DIR'] = ROOT_DIR + '/kmeans/dataset/'
 
-@app.route('/api/upload-dataset')
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in {'csv'}
+
+@app.route('/api/upload-dataset', methods=['POST'])
 def upload_dataset():
-    pass
+    if(request.method == 'POST'):
+        if 'csvFile' not in request.files:
+            return jsonify(error='No file found!'), 400
 
-@app.route('/api/preprocess-dataset')
+        file = request.files['csvFile']
+
+        if file.filename == '':
+            return jsonify(error='No file was selected!'), 400
+
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['DATASET_DIR'], filename))
+
+            return jsonify(success='Uploaded Dataset Successfully!'), 200
+
+@app.route('/api/preprocess-dataset', methods=['GET'])
 def preprocess_dataset():
-    kmeans_preprocess(DATASET_DIR)
-    pass
+    if(request.method == 'GET'):
+        kmeans_preprocess(app.config['DATASET_DIR'])
+        return send_file(app.config['DATASET_DIR']+'preprocessed.json')
 
 @app.route('/api/cluster-dataset')
 def cluster_dataset():

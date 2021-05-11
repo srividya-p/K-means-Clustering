@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 
 def kmeans_preprocess(DATASET_DIR):
+    print('Kmeans preprocess')
     dataset = pd.read_csv(DATASET_DIR+'original.csv')
 
     #Convert all string values to NaN
@@ -20,3 +21,5 @@ def kmeans_preprocess(DATASET_DIR):
     dataset = dataset.fillna(dataset.mean())
 
     dataset.to_csv(DATASET_DIR+'preprocessed.csv', index=False)
+    dataset.to_json(DATASET_DIR+'preprocessed.json', orient='records')
+

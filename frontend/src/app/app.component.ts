@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MessageService } from 'primeng/api';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'frontend';
+  title = 'K-means';
+
+  constructor(private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
+
+  ngOnInit() {
+    this.primengConfig.ripple = true;
+  }
+
+  showMessage($event) {
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: $event });
+  }
 }

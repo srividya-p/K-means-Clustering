@@ -1,24 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.scss']
 })
-export class UploadComponent implements OnInit {
+export class UploadComponent {
 
-  constructor() { }
+  apiUploadURL: string = 'http://localhost:5000/api/upload-dataset'
 
-  ngOnInit(): void {
-  }
+  constructor(private http: HttpClient) { }
 
-  onUpload(event) {
-    let input =event.files[0]
-    let reader = new FileReader();
-    reader.readAsText(input)
+  @Output() tabChangeEvent = new EventEmitter<number>();
 
-    reader.onload = () => {
-      console.log(reader.result)
+  @Output() uploadEvent = new EventEmitter<string>();
+
+  async onUpload(event) {
+    let csvFile = new Blob([event.files[0]], { type: 'text/csv' })
+    let formData = new FormData();
+    formData.append('csvFile', csvFile, 'original.csv')
+    try {
+      console.log(this.apiUploadURL)
+      let response = await this.http.post(this.apiUploadURL, formData).toPromise()
+
+      this.tabChangeEvent.emit(1);
+      this.uploadEvent.emit(response['success'])
+
+    } catch (e) {
+      console.log(e.error)
     }
   }
 
