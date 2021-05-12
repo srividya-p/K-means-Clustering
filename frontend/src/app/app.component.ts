@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +9,12 @@ import { PrimeNGConfig } from 'primeng/api';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'K-means';
 
-  constructor(private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
+  constructor(private messageService: MessageService, private primengConfig: PrimeNGConfig, private titleService: Title) { }
 
   ngOnInit() {
     this.primengConfig.ripple = true;
+    this.titleService.setTitle( 'K-means Clustering' );
   }
 
   showMessage($event) {

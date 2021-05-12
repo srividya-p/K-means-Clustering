@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-xs-6 dropdown">
+        <p-dropdown [options]="xOptions" (onChange)="initYOptions($event)" [(ngModel)]="selectedX" placeholder="Select X Axis " optionLabel="lable" [showClear]="true" autoWidth="false" [style]="{'width':'50%', 'height':'40px'}"></p-dropdown>
+    </div>
+
+    <div class="col-xs-6 dropdown">
+        <p-dropdown [disabled]="!enableY" [options]="yOptions" [(ngModel)]="selectedY" placeholder="Select Y Axis" optionLabel="lable" [showClear]="true" [style]="{'width':'50%', 'height':'40px'}"></p-dropdown>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div id="chart">
+            <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+                [yaxis]="chartOptions.yaxis"></apx-chart>
+        </div>
+    </div>
+</div>

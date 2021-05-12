@@ -35,7 +35,7 @@ def kmeans_clustering(DATASET_DIR, k, p):
         if(prev_centers == centers):
             is_centers_same = True
 
-        return {
-            'clusters': result,
-            'original_centers': original_centers
-        }
+    return {
+        'clusters': result,
+        'original_centers': original_centers
+    }
