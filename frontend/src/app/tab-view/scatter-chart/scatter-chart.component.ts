@@ -30,8 +30,8 @@ export class ScatterChartComponent implements OnInit {
 
   xOptions: any[] = [];
   yOptions: any[] = [];
-  selectedX: string;
-  selectedY: string;
+  selectedX: any;
+  selectedY: any;
   enableY: boolean = false;
 
   constructor() {
@@ -66,7 +66,7 @@ export class ScatterChartComponent implements OnInit {
     let axes = Object.keys(this.preprocessedCSV[0]);
     for (let i = 0; i < axes.length; i++) {
       let obj: any = {};
-      obj['lable'] = axes[i];
+      obj['label'] = axes[i];
       obj['value'] = i;
       this.xOptions.push(obj)
     }
@@ -86,8 +86,62 @@ export class ScatterChartComponent implements OnInit {
     // }]
   }
 
-  initYOptions($event) {
+  removeByAtrr(arr, attr, value) {
+    var i = arr.length;
+    while (i--) {
+      if (arr[i]
+        && arr[i].hasOwnProperty(attr)
+        && (arguments.length > 2 && arr[i][attr] === value)) {
+        arr.splice(i, 1);
+      }
+    }
+    return arr;
+  }
 
+  initYOptions($event) {
+    this.selectedY = undefined;
+    this.yOptions = [...this.xOptions];
+    this.yOptions = this.removeByAtrr(this.yOptions, 'label', this.selectedX['label'])
+    this.enableY = true;
+  }
+
+  showPlot() {
+    if (this.selectedX && this.selectedY) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  onPlotClick($event) {
+    this.chartOptions.series = []
+
+    let x: number = this.selectedX['value'];
+    let y: number = this.selectedY['value'];
+
+    let clusters: any = this.clusterResult.clusters;
+    let cluster_keys: string[] = Object.keys(clusters);
+
+    for (let i = 0; i < cluster_keys.length; i++) {
+      let obj: any = {};
+      obj['name'] = 'CLUSTER ' + cluster_keys[i];
+
+      let cluster_data: any[] = clusters[cluster_keys[i]]
+      let filtered_data: any[] = [];
+
+      for (let j = 0; j < cluster_data.length; j++) {
+        let filtered_array:any = [];
+        filtered_array.push(cluster_data[j][x]);
+        filtered_array.push(cluster_data[j][y]);
+
+        filtered_data.push(filtered_array);
+      }
+
+      obj['data'] = filtered_data;
+      this.chartOptions.series.push(obj)
+    }
+
+    console.log(this.chartOptions.series)
   }
 
 }

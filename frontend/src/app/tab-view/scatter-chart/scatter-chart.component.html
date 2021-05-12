@@ -1,10 +1,14 @@
 <div class="row">
     <div class="col-xs-6 dropdown">
-        <p-dropdown [options]="xOptions" (onChange)="initYOptions($event)" [(ngModel)]="selectedX" placeholder="Select X Axis " optionLabel="lable" [showClear]="true" autoWidth="false" [style]="{'width':'50%', 'height':'40px'}"></p-dropdown>
+        <p-dropdown [options]="xOptions" (onChange)="initYOptions($event)" [(ngModel)]="selectedX" placeholder="Select X Axis " optionLabel="label" autoWidth="false" [style]="{'width':'50%', 'height':'40px'}"></p-dropdown>
     </div>
 
     <div class="col-xs-6 dropdown">
-        <p-dropdown [disabled]="!enableY" [options]="yOptions" [(ngModel)]="selectedY" placeholder="Select Y Axis" optionLabel="lable" [showClear]="true" [style]="{'width':'50%', 'height':'40px'}"></p-dropdown>
+        <p-dropdown [disabled]="!enableY" [options]="yOptions" [(ngModel)]="selectedY" placeholder="Select Y Axis" optionLabel="label" [style]="{'width':'50%', 'height':'40px'}"></p-dropdown>
+    </div>
+
+    <div class="col-xs-12 dropdown">
+        <button *ngIf="showPlot()" pButton type="button" (click)="onPlotClick($event)" label="Plot" class="p-button-info p-button-lg"></button>
     </div>
 </div>
 
