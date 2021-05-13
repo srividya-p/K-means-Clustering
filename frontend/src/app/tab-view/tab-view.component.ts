@@ -12,6 +12,7 @@ export class TabViewComponent {
   csvObject: any;
   apiPreprocessURL: string = 'http://localhost:5000/api/preprocess-dataset';
   showPreprocessed:boolean = false;
+  showInputs:boolean = false;
   showClusters:boolean = false;
   showChart:boolean = false;
   clusterResult:any;
@@ -48,6 +49,7 @@ export class TabViewComponent {
           this.csvObject = JSON.stringify(csvString).replace(/(?:\\[rn])+/g, '');
           this.csvObject = JSON.parse(JSON.parse(this.csvObject))
           this.showPreprocessed = true;
+          this.showInputs = true;
         }
       }
     )

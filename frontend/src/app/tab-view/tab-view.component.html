@@ -31,8 +31,8 @@
 
                 <p-tabPanel [disabled]="activeIndex !== 2"
                     header="&emsp;&emsp;Input Parameters&emsp;&emsp;&emsp;&emsp;&nbsp;" leftIcon="pi pi-cog">
-                    <app-inputs (sendClustersEvent)="receiveClusters($event)"
-                        (tabChangeEvent)="receiveActiveIndex($event)"></app-inputs>
+                    <app-inputs *ngIf="showInputs" (sendClustersEvent)="receiveClusters($event)"
+                        (tabChangeEvent)="receiveActiveIndex($event)" [maxK]="csvObject.length"></app-inputs>
                 </p-tabPanel>
 
                 <p-tabPanel [disabled]="activeIndex !== 3" header="&emsp;&emsp;Clusters&emsp;&emsp;&emsp;&emsp;&nbsp;"

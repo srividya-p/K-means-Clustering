@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -19,6 +19,8 @@ export class InputsComponent implements OnInit {
   @Output() tabChangeEvent = new EventEmitter<number>();
 
   @Output() sendClustersEvent = new EventEmitter<any>();
+
+  @Input() maxK: number;
 
   constructor(private http: HttpClient) {
     this.distOptions = [
