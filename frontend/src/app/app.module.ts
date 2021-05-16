@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,8 +18,8 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { TableModule } from 'primeng/table';
-import {BadgeModule} from 'primeng/badge';
-import {DropdownModule} from 'primeng/dropdown';
+import { BadgeModule } from 'primeng/badge';
+import { DropdownModule } from 'primeng/dropdown';
 
 import { NgApexchartsModule } from "ng-apexcharts";
 
@@ -31,6 +31,7 @@ import { InputsComponent } from './tab-view/inputs/inputs.component';
 import { PreprocessedTableComponent } from './tab-view/preprocessed-table/preprocessed-table.component';
 import { ClustersComponent } from './tab-view/clusters/clusters.component';
 import { ScatterChartComponent } from './tab-view/scatter-chart/scatter-chart.component';
+import { NoCacheHeadersInterceptor } from './services/prevent-cache.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,11 @@ import { ScatterChartComponent } from './tab-view/scatter-chart/scatter-chart.co
     DropdownModule,
     NgApexchartsModule
   ],
-  providers: [ Title, MessageService ],
+  providers: [Title, MessageService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: NoCacheHeadersInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
